@@ -6,4 +6,8 @@ var routes = require('./routes');
 
 Router.run(routes, function(Handler) {
     React.render(<Handler/>, document.getElementById('app'));
-});
+}); //without history location style - /#/about
+
+// Router.run(routes, Router.HistoryLocation, function(Handler) {
+//     React.render(<Handler/>, document.getElementById('app'));
+// }); - no support for old browsers
