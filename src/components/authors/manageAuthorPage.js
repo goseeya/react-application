@@ -3,7 +3,8 @@
 var React = require('react');
 var Router = require('react-router');
 var AuthorForm = require('./authorForm');
-var AuthorApi = require('../../api/authorApi');
+var AuthorActions = require('../../actions/authorActions');
+var AuthorStore = require('../../stores/authorStore');
 var toastr = require('toastr');
 
 
@@ -35,7 +36,7 @@ var ManageAuthorPage = React.createClass({
         var authorId = this.props.params.id; //from the path '/author:id
 
         if (authorId) {
-            this.setState({author: AuthorApi.getAuthorById(authorId)});
+            this.setState({author: AuthorStore.getAuthorById(authorId)});
         }
     },
 
@@ -68,10 +69,15 @@ var ManageAuthorPage = React.createClass({
     saveAuthor: function(event) {
         event.preventDefault();
 
-        if(!this.authorFormIsValid()) {
+        if (!this.authorFormIsValid()) {
             return;
         }
-        AuthorApi.saveAuthor(this.state.author); //saves author to fake api
+
+        if (this.state.author.id) {
+            AuthorActions.updateAuthor(this.state.author);
+        } else {
+            AuthorActions.createAuthor(this.state.author); //saves author to fake api
+        }
         this.setState({dirty: false});
         toastr.success('Author saved.');
         //redirect user to author pg
