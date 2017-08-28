@@ -18,7 +18,8 @@ var config = {
         images: './src/images/*', //any images from folder
         css : [
             'node_modules/bootstrap/dist/css/bootstrap.min.css',
-            'node_modules/bootstrap/dist/css/bootstrap-theme.min.css'
+            'node_modules/bootstrap/dist/css/bootstrap-theme.min.css',
+            'node_modules/toastr/toastr.css' //bundle toastr with the rest of the css
         ],
         dist: './dist',
         mainJs: './src/main.js'
