@@ -50276,7 +50276,6 @@ var AuthorActions = {
     },
 
     deleteAuthor: function(id) {
-        debugger;
         AuthorApi.deleteAuthor(id);
 
         Dispatcher.dispatch({
@@ -50563,7 +50562,6 @@ var AuthorPage = React.createClass({displayName: "AuthorPage",
     },
 
     _onChange: function() {
-        debugger;
         this.setState({ authors: AuthorStore.getAllAuthors() });
     },
 
@@ -50904,7 +50902,6 @@ Dispatcher.register(function(action) {
             AuthorStore.emitChange();
             break;
          case ActionTypes.DELETE_AUTHOR:
-         debugger;
             _.remove(_authors, function(author) {
                 return action.id === author.id;
             });
