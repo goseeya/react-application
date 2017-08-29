@@ -50390,14 +50390,14 @@ var About = React.createClass({displayName: "About",
     statics: {
         willTransitionTo: function(transition, params, query, callback) {
             if (!confirm('Are you sure you want to read a page that\'s this boring?')) {//or isLogin
-                transition.about();
+                transition.abort();
             } else {
                 callback();
             }
         },
         willTransitionFrom: function(transition, component) {
             if (!confirm('Are you sure you want to leave a page that\'s this exciting?')) {//or isLogin
-                transition.about();
+                transition.abort();
             }
         }
     },
@@ -50428,7 +50428,7 @@ module.exports = About;
 var React = require('react');
 var Header = require('./common/header');
 var RouteHandler = require('react-router').RouteHandler;
-$ = jQuery = require('jquery');
+// $ = jQuery = require('jquery');
 
 
  var App = React.createClass({displayName: "App",
@@ -50446,7 +50446,7 @@ $ = jQuery = require('jquery');
 
     module.exports = App;
 
-},{"./common/header":214,"jquery":5,"react":202,"react-router":33}],210:[function(require,module,exports){
+},{"./common/header":214,"react":202,"react-router":33}],210:[function(require,module,exports){
 "use strict";
 
 var React = require('react');
