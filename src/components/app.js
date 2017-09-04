@@ -2,6 +2,7 @@
 
 var React = require('react');
 var Header = require('./common/header');
+var Footer = require('./common/footer');
 var RouteHandler = require('react-router').RouteHandler;
 // $ = jQuery = require('jquery');
 
@@ -14,6 +15,7 @@ var RouteHandler = require('react-router').RouteHandler;
                     <div className="container-fluid">
                         <RouteHandler/>
                     </div>
+                    <Footer/>
                 </div>
             );
         }

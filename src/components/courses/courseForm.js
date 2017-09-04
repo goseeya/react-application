@@ -28,6 +28,20 @@ var CourseForm = React.createClass({
                     onChange={this.props.onChange}
                     error={this.props.errors.author} />
 
+                <Input
+                    name="category"
+                    label="Category"
+                    value={this.props.course.category}
+                    onChange={this.props.onChange}
+                    error={this.props.errors.category} />
+
+                <Input
+                    name="length"
+                    label="Length"
+                    value={this.props.course.length}
+                    onChange={this.props.onChange}
+                    error={this.props.errors.length} />
+
                 <input type="submit" value="Save" className="btn btn-default" onClick={this.props.onSave}/>
             </form>
         );

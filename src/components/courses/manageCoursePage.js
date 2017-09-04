@@ -62,6 +62,16 @@ var ManageCoursePage = React.createClass({
             formIsValid = false;
         }
 
+        if (this.state.course.category.length < 3) {
+            this.state.errors.category = 'Category must be at least 3 characters';
+            formIsValid = false;
+        }
+
+        if (this.state.course.length.length < 1) {
+            this.state.errors.length = 'Length must be at least 1 character';
+            formIsValid = false;
+        }
+
         this.setState({errors: this.state.errors});
         return formIsValid;
     },
@@ -90,7 +100,7 @@ var ManageCoursePage = React.createClass({
             <div>
                 <CourseForm 
                     course={this.state.course}
-                    onChange={this.setAuthorState}
+                    onChange={this.setCourseState}
                     onSave={this.saveCourse}
                     errors={this.state.errors} />
             </div>
